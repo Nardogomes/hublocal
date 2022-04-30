@@ -2,6 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { SignIn } from "./pages/SignIn";
+import { Company } from "./pages/Company";
 
 import { GlobalStyle } from "./styles/global";
 
@@ -19,6 +20,7 @@ export function App() {
       <Router>
         <Routes>
           <Route path="/" element={<SignIn />} />
+          <Route path="/empresa" element={<Company />} />
         </Routes>
       </Router>
       <GlobalStyle />
