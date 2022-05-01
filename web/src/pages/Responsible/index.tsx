@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 
-import { Container, Content, Fields } from "../Company/style";
+import { Container, Content, Fields } from "../Responsible/style";
 
-export function Company() {
+export function Responsible() {
   return (
     <Container>
       <Header />
 
       <Content>
-        <h1>Cadastro de empresa</h1>
+        <h1>Cadastro de responsável</h1>
 
         <Fields>
           <Input
@@ -22,17 +22,17 @@ export function Company() {
           />
 
           <Input
-            label="CNPJ"
-            name="cnpj"
+            label="Telefone"
+            name="contact"
             type="text"
-            value="00.000.000/000-12"
+            value="(00) 91213-4645"
             onChange={() => {}}
           />
 
           <Input
-            label="Descrição"
-            name="description"
-            type="textarea"
+            label="Endereço"
+            name="address"
+            type="text"
             value=""
             onChange={() => {}}
           />

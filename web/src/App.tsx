@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { Company } from "./pages/Company";
+import { Responsible } from "./pages/Responsible";
 
 import { GlobalStyle } from "./styles/global";
 
@@ -23,6 +24,7 @@ export function App() {
           <Route path="/" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/empresa" element={<Company />} />
+          <Route path="/responsavel" element={<Responsible />} />
         </Routes>
       </Router>
       <GlobalStyle />
