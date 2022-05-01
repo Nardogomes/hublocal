@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
@@ -5,6 +6,12 @@ import { Input } from "../../components/Input";
 import { Container, Content, Fields } from "../Responsible/style";
 
 export function Responsible() {
+  const [newResponsible, setNewResponsible] = useState({
+    name: "",
+    contact: "",
+    address: "",
+  });
+
   return (
     <Container>
       <Header />
@@ -17,24 +24,24 @@ export function Responsible() {
             label="Nome"
             name="name"
             type="text"
-            value="Alguma coisa"
-            onChange={() => {}}
+            value={newResponsible.name}
+            onChange={setNewResponsible}
           />
 
           <Input
             label="Telefone"
             name="contact"
             type="text"
-            value="(00) 91213-4645"
-            onChange={() => {}}
+            value={newResponsible.contact}
+            onChange={setNewResponsible}
           />
 
           <Input
             label="Endereço"
             name="address"
             type="text"
-            value=""
-            onChange={() => {}}
+            value={newResponsible.address}
+            onChange={setNewResponsible}
           />
         </Fields>
 
