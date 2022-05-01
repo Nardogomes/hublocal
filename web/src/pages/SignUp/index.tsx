@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
@@ -5,6 +6,13 @@ import { Input } from "../../components/Input";
 import { Container, Content, Fields } from "../SignUp/style";
 
 export function SignUp() {
+  const [newUser, setNewUser] = useState({
+    name: "",
+    sobrenome: "",
+    email: "",
+    password: "",
+  });
+
   return (
     <Container>
       <Header />
@@ -18,16 +26,16 @@ export function SignUp() {
               label="Nome"
               name="nome"
               type="text"
-              value="Alguma coisa"
-              onChange={() => {}}
+              value={newUser.name}
+              onChange={setNewUser}
             />
 
             <Input
               label="Sobrenome"
               name="sobrenome"
               type="text"
-              value="Alguma coisa"
-              onChange={() => {}}
+              value={newUser.sobrenome}
+              onChange={setNewUser}
             />
           </div>
 
@@ -35,8 +43,8 @@ export function SignUp() {
             label="E-mail"
             name="email"
             type="email"
-            value="Alguma coisa"
-            onChange={() => {}}
+            value={newUser.email}
+            onChange={setNewUser}
           />
 
           <div className="password">
@@ -44,8 +52,8 @@ export function SignUp() {
               label="Senha"
               name="password"
               type="password"
-              value=""
-              onChange={() => {}}
+              value={newUser.password}
+              onChange={setNewUser}
             />
             <Input
               label="Confirmar senha"

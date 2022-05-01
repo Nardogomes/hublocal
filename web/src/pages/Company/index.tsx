@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
@@ -5,6 +6,12 @@ import { Input } from "../../components/Input";
 import { Container, Content, Fields } from "../Company/style";
 
 export function Company() {
+  const [newCompany, setNewCompany] = useState({
+    name: "",
+    cnpj: "",
+    description: "",
+  });
+
   return (
     <Container>
       <Header />
@@ -17,24 +24,24 @@ export function Company() {
             label="Nome"
             name="name"
             type="text"
-            value="Alguma coisa"
-            onChange={() => {}}
+            value={newCompany.name}
+            onChange={setNewCompany}
           />
 
           <Input
             label="CNPJ"
             name="cnpj"
             type="text"
-            value="00.000.000/000-12"
-            onChange={() => {}}
+            value={newCompany.cnpj}
+            onChange={setNewCompany}
           />
 
           <Input
             label="Descrição"
             name="description"
             type="textarea"
-            value=""
-            onChange={() => {}}
+            value={newCompany.description}
+            onChange={setNewCompany}
           />
         </Fields>
 
