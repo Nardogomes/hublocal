@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
@@ -14,15 +14,27 @@ export const Content = styled.div`
   width: 72rem;
   height: 32rem;
   margin-top: 2rem;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 0.62rem;
   box-shadow: 0px 0px 4px 1px rgb(0, 0, 0, 0.4);
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  h1 {
+    color: #4685fe;
+  }
+  button {
+    width: 8rem;
+    height: 2rem;
+    border: none;
+    background-color: #7cfcc2;
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
 `;
 
-export const LeftContent =styled.div`
+export const LeftContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,8 +46,20 @@ export const LeftContent =styled.div`
 `;
 
 export const RightContent = styled.div`
+  width: 34rem;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+
+  button {
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
 `;

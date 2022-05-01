@@ -1,15 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 8rem;
   background-color: #4685fe;
 `;
 
 export const Content = styled.div`
-  width: 80rem;
+  max-width: 76rem;
   margin: 0 auto;
-  padding: 1.8rem 0 0 0;
+  padding: 1.8rem 1rem 0 1rem;
 
   display: flex;
   justify-content: space-between;
@@ -17,8 +17,8 @@ export const Content = styled.div`
 
   img {
     width: 10rem;
-    heigth: 5rem;
-    background-color: #F5F5F5;
+    height: 5rem;
+    background-color: #f5f5f5;
     border-radius: 0.25rem;
   }
 
