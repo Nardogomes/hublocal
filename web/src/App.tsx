@@ -5,6 +5,7 @@ import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { Company } from "./pages/Company";
 import { Responsible } from "./pages/Responsible";
+import { Ticket } from "./pages/Ticket";
 
 import { GlobalStyle } from "./styles/global";
 
@@ -25,6 +26,7 @@ export function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/empresa" element={<Company />} />
           <Route path="/responsavel" element={<Responsible />} />
+          <Route path="/ticket" element={<Ticket />} />
         </Routes>
       </Router>
       <GlobalStyle />

@@ -20,6 +20,7 @@ export const Content = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 4rem;
 
   h1 {
     color: #4685fe;
@@ -46,7 +47,7 @@ export const LeftContent = styled.div`
 `;
 
 export const RightContent = styled.div`
-  width: 34rem;
+  width: 28rem;
 
   display: flex;
   flex-direction: column;
