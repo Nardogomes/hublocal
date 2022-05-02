@@ -28,7 +28,7 @@ export function Company() {
       toast("Empresa cadastrada com sucesso.", {
         type: "success",
         autoClose: 3000,
-        onClose: () => navigate("/"),
+        onClose: () => navigate("/empresas-cad"),
       });
     }
   }
@@ -68,7 +68,7 @@ export function Company() {
 
         <div className="buttons">
           <button onClick={onSubmit}>Cadastrar</button>
-          <Link to="/">
+          <Link to="/empresas-cad">
             <button name="cancel">Cancelar</button>
           </Link>
         </div>
