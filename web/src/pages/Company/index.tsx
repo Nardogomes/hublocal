@@ -1,16 +1,37 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
+import { toast } from "react-toastify";
 
 import { Container, Content, Fields } from "../Company/style";
 
 export function Company() {
+  const navigate = useNavigate();
+
   const [newCompany, setNewCompany] = useState({
     name: "",
     cnpj: "",
     description: "",
   });
+
+  async function onSubmit() {
+    const request = await fetch("http://localhost:3333/savecompany", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...newCompany }),
+    });
+
+    if (request.ok) {
+      toast("Empresa cadastrada com sucesso.", {
+        type: "success",
+        autoClose: 3000,
+        onClose: () => navigate("/"),
+      });
+    }
+  }
 
   return (
     <Container>
@@ -46,7 +67,7 @@ export function Company() {
         </Fields>
 
         <div className="buttons">
-          <button>Cadastrar</button>
+          <button onClick={onSubmit}>Cadastrar</button>
           <Link to="/">
             <button name="cancel">Cancelar</button>
           </Link>
