@@ -6,6 +6,9 @@ import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { Company } from "./pages/Company";
 import { Responsible } from "./pages/Responsible";
+import { Place } from "./pages/Place";
+import { Ticket } from "./pages/Ticket";
+import { ShowCompanies } from "./pages/ShowCompanies";
 
 import { GlobalStyle } from "./styles/global";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,6 +30,9 @@ export function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/empresa" element={<Company />} />
           <Route path="/responsavel" element={<Responsible />} />
+          <Route path="/local" element={<Place />} />
+          <Route path="/ticket" element={<Ticket />} />
+          <Route path="/empresas-cad" element={<ShowCompanies />} />
         </Routes>
       </Router>
       <GlobalStyle />
