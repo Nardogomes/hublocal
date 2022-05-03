@@ -31,12 +31,12 @@ export function App() {
           <Route path="/" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/empresa" element={<Company />} />
-          <Route path="/responsavel" element={<Responsible />} />
-          <Route path="/local" element={<Place />} />
-          <Route path="/ticket" element={<Ticket />} />
           <Route path="/empresas-cad" element={<ShowCompanies />} />
-          <Route path="/locais-cad" element={<ShowPlaces />} />
+          <Route path="/responsavel" element={<Responsible />} />
           <Route path="/responsaveis-cad" element={<ShowResponsible />} />
+          <Route path="/local" element={<Place />} />
+          <Route path="/locais-cad" element={<ShowPlaces />} />
+          <Route path="/ticket" element={<Ticket />} />
         </Routes>
       </Router>
       <GlobalStyle />

@@ -7,6 +7,7 @@ import { Container, Content } from "../ShowPlaces/style";
 interface ShowResponsibleProps {
   id: string;
   name: string;
+  contact: string;
   address: string;
 }
 
@@ -30,6 +31,7 @@ export function ShowResponsible() {
           <thead>
             <tr>
               <th>Nome</th>
+              <th>Contato</th>
               <th>Endereço</th>
             </tr>
           </thead>
@@ -38,6 +40,7 @@ export function ShowResponsible() {
             {responsibles.map((responsible) => (
               <tr key={responsible.id}>
                 <td>{responsible.name}</td>
+                <td>{responsible.contact}</td>
                 <td>{responsible.address}</td>
               </tr>
             ))}
