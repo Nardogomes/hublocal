@@ -1,15 +1,36 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
+import { toast } from "react-toastify";
 
 import { Container, Content, Fields } from "../Place/style";
 
 export function Place() {
+  const navigate = useNavigate();
+
   const [newPlace, setNewPlace] = useState({
     name: "",
     address: "",
   });
+
+  async function onSubmit() {
+    const request = await fetch("http://localhost:3333/savelocation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...newPlace }),
+    });
+
+    if (request.ok) {
+      toast("Local cadastrado com sucesso.", {
+        type: "success",
+        autoClose: 3000,
+        onClose: () => navigate("/locais-cad"),
+      });
+    }
+  }
 
   return (
     <Container>
@@ -37,8 +58,8 @@ export function Place() {
         </Fields>
 
         <div className="buttons">
-          <button>Cadastrar</button>
-          <Link to="/">
+          <button onClick={onSubmit}>Cadastrar</button>
+          <Link to="/locais-cad">
             <button name="cancel">Cancelar</button>
           </Link>
         </div>
