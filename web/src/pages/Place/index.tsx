@@ -14,12 +14,27 @@ export function Place() {
     address: "",
   });
 
-  async function onSubmit() {
+  console.log(`Valor do newPlace${newPlace}`);
+
+  const [cep, setCep] = useState({
+    cep: "",
+    logradouro: "",
+    bairro: "",
+    numero: "",
+    localidade: "",
+    uf: "",
+  });
+
+  console.log(`Valor do cep fora: ${{cep}}`);
+
+  async function onGetCep() {
     const getCep = await fetch(
       `https://viacep.com.br/ws/${newPlace.address}/json/`
     );
 
     const cep = await getCep.json();
+
+    setCep({...cep, numero: cep.numero});
 
     if (cep.erro) {
       toast("CEP Inválido!", {
@@ -29,7 +44,9 @@ export function Place() {
 
       return;
     }
+  }
 
+  async function onSubmit() {
     const request = await fetch("http://localhost:3333/savelocation", {
       method: "POST",
       headers: {
@@ -56,19 +73,62 @@ export function Place() {
 
         <Fields>
           <Input
-            label="Nome"
+            label="Nome do local"
             name="name"
             type="text"
             value={newPlace.name}
             onChange={setnewPlace}
           />
 
+          <div className="search-cep">
+            <Input
+              label="CEP (Somente números)"
+              name="address"
+              type="text"
+              value={newPlace.address}
+              placeholder="00000000"
+              onChange={setnewPlace}
+            />
+            <button onClick={onGetCep}>Consultar CEP</button>
+          </div>
+
           <Input
-            label="CEP"
-            name="address"
+            label="Rua"
+            name="logradouro"
             type="text"
-            value={newPlace.address}
-            onChange={setnewPlace}
+            value={cep.logradouro}
+            onChange={() => {}}
+          />
+
+          <Input
+            label="Bairro"
+            name="bairro"
+            type="text"
+            value={cep.bairro}
+            onChange={() => {}}
+          />
+          <Input
+            label="Nº"
+            name="numero"
+            type="text"
+            value={cep.numero}
+            onChange={setCep}
+          />
+
+          <Input
+            label="Cidade"
+            name="localidade"
+            type="text"
+            value={cep.localidade}
+            onChange={() => {}}
+          />
+
+          <Input
+            label="Estado"
+            name="uf"
+            type="text"
+            value={cep.uf}
+            onChange={() => {}}
           />
         </Fields>
 

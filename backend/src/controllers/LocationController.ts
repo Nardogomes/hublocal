@@ -5,12 +5,13 @@ import { Location } from "../entity/Location";
 export async function save(request: Request, response: Response) {
   const locationRepository = getRepository(Location);
 
-  const { cep, logradouro, bairro, localidade, uf } = request.body.address;
+  const { cep, logradouro, bairro, numero, localidade, uf } = request.body.address;
 
   const address = JSON.stringify({
     cep,
     logradouro,
     bairro,
+    numero,
     localidade,
     uf,
   });

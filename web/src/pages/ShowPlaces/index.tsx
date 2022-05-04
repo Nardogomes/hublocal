@@ -11,6 +11,7 @@ interface ShowPlacesProps {
     cep: string;
     logradouro: string;
     bairro: string;
+    numero: string;
     localidade: string;
     uf: string;
   };
@@ -50,6 +51,7 @@ export function ShowPlaces() {
               <th>CEP</th>
               <th>logradouro</th>
               <th>bairro</th>
+              <th>Nº</th>
               <th>localidade</th>
               <th>uf</th>
             </tr>
@@ -62,6 +64,7 @@ export function ShowPlaces() {
                 <td>{place.address.cep}</td>
                 <td>{place.address.logradouro}</td>
                 <td>{place.address.bairro}</td>
+                <td>{place.address.numero}</td>
                 <td>{place.address.localidade}</td>
                 <td>{place.address.uf}</td>
               </tr>
