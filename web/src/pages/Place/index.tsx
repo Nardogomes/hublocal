@@ -14,8 +14,6 @@ export function Place() {
     address: "",
   });
 
-  console.log(`Valor do newPlace${newPlace}`);
-
   const [cep, setCep] = useState({
     cep: "",
     logradouro: "",
@@ -24,8 +22,6 @@ export function Place() {
     localidade: "",
     uf: "",
   });
-
-  console.log(`Valor do cep fora: ${{cep}}`);
 
   async function onGetCep() {
     const getCep = await fetch(

@@ -15,6 +15,34 @@ export function Responsible() {
     address: "",
   });
 
+  const [cep, setCep] = useState({
+    cep: "",
+    logradouro: "",
+    bairro: "",
+    numero: "",
+    localidade: "",
+    uf: "",
+  });
+
+  async function onGetCep() {
+    const getCep = await fetch(
+      `https://viacep.com.br/ws/${newResponsible.address}/json/`
+    );
+
+    const cep = await getCep.json();
+
+    setCep({...cep, numero: cep.numero});
+
+    if (cep.erro) {
+      toast("CEP Inválido!", {
+        type: "error",
+        autoClose: 3000,
+      });
+
+      return;
+    }
+  }
+
   async function onSubmit() {
     const request = await fetch("http://localhost:3333/saveresponsible", {
       method: "POST",
@@ -58,8 +86,8 @@ export function Responsible() {
           />
 
           <Input
-            label="Endereço"
-            name="address"
+            label="CEP (Somente números)"
+            name="cep"
             type="text"
             value={newResponsible.address}
             onChange={setNewResponsible}
