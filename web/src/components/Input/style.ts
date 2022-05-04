@@ -9,6 +9,7 @@ export const Container = styled.div`
 
 export const InputStyled = styled.input`
   height: 1.7rem;
+  margin-top: 0.6rem;
   background-color: ${(props) => props.theme.background};
   color: ${(props) => props.theme.text};
   border: none;
