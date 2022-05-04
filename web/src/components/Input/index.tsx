@@ -5,10 +5,11 @@ interface InputProps {
   name: string;
   type: string;
   value: string;
+  placeholder?: string;
   onChange: Function;
 }
 
-export function Input({ label, name, type, value, onChange }: InputProps) {
+export function Input({ label, name, type, value, placeholder, onChange }: InputProps) {
   return (
     <Container>
       <label>{label}</label>
@@ -17,6 +18,7 @@ export function Input({ label, name, type, value, onChange }: InputProps) {
         name={name}
         type={type}
         value={value}
+        placeholder={placeholder}
         onChange={ev => {
           onChange((previousState: any) => ({...previousState, [name]: ev.target.value}))
         }}

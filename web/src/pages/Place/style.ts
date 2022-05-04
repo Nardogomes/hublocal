@@ -8,7 +8,6 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 66rem;
-  height: 32rem;
   margin-top: 2rem;
   padding: 1rem;
   background-color: #fff;
@@ -58,4 +57,37 @@ export const Content = styled.div`
 export const Fields = styled.div`
   width: 48rem;
   margin-top: 3rem;
+
+  .search-cep {
+    display: flex;
+    align-items: center;
+    
+    & > div {
+      width: 20rem;
+    }
+
+    input {
+      width: 16rem;
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+
+    button {
+      width: 12rem;
+      height: 3rem;
+      border: none;
+      border-radius: 0.25rem;
+      background-color: #7cfcc2;
+      font-size: 1.02rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: filter 0.3s;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
 `;
