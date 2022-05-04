@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 66rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 1rem;
   background-color: #fff;
   border-radius: 0.62rem;
@@ -26,7 +26,7 @@ export const Content = styled.div`
 
   .buttons {
     width: 32rem;
-    margin-top: 3rem;
+    margin: 2rem 0;
 
     display: flex;
     justify-content: space-between;
@@ -87,6 +87,19 @@ export const Fields = styled.div`
 
       &:hover {
         filter: brightness(0.9);
+      }
+    }
+  }
+
+  .bairro-n {
+    display: flex;
+    justify-content: space-between;
+    
+    div {
+      width: 10rem;
+
+      input[name="bairro"] {
+        width: 26rem;
       }
     }
   }

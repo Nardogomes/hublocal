@@ -100,20 +100,22 @@ export function Place() {
             onChange={() => {}}
           />
 
-          <Input
-            label="Bairro"
-            name="bairro"
-            type="text"
-            value={cep.bairro}
-            onChange={() => {}}
-          />
-          <Input
-            label="Nº"
-            name="numero"
-            type="text"
-            value={cep.numero}
-            onChange={setCep}
-          />
+          <div className="bairro-n">
+            <Input
+              label="Bairro"
+              name="bairro"
+              type="text"
+              value={cep.bairro}
+              onChange={() => {}}
+            />
+            <Input
+              label="Nº"
+              name="numero"
+              type="text"
+              value={cep.numero}
+              onChange={setCep}
+            />
+          </div>
 
           <Input
             label="Cidade"
