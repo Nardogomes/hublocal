@@ -2,12 +2,12 @@ import { Column, PrimaryGeneratedColumn, Entity } from "typeorm";
 
 @Entity()
 export class Location {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column('varchar')
+  @Column("varchar")
   name: string;
 
-  @Column('varchar')
+  @Column("varchar")
   address: string;
 }
