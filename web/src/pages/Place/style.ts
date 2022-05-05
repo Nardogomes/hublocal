@@ -61,7 +61,7 @@ export const Fields = styled.div`
   .search-cep {
     display: flex;
     align-items: center;
-    
+
     & > div {
       width: 20rem;
     }
@@ -94,7 +94,7 @@ export const Fields = styled.div`
   .bairro-n {
     display: flex;
     justify-content: space-between;
-    
+
     div {
       width: 10rem;
 

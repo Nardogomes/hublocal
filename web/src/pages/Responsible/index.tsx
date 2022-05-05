@@ -31,7 +31,7 @@ export function Responsible() {
 
     const cep = await getCep.json();
 
-    setCep({...cep, numero: cep.numero});
+    setCep({ ...cep, numero: cep.numero });
 
     if (cep.erro) {
       toast("CEP Inválido!", {
@@ -49,7 +49,11 @@ export function Responsible() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...newResponsible }),
+      body: JSON.stringify({
+        name: newResponsible.name,
+        contact: newResponsible.contact,
+        address: cep,
+      }),
     });
 
     if (request.ok) {
@@ -70,7 +74,7 @@ export function Responsible() {
 
         <Fields>
           <Input
-            label="Nome"
+            label="Nome do responsável"
             name="name"
             type="text"
             value={newResponsible.name}
@@ -78,19 +82,65 @@ export function Responsible() {
           />
 
           <Input
-            label="Telefone"
+            label="Telefone (Somente números)"
             name="contact"
             type="text"
             value={newResponsible.contact}
+            placeholder="085900000000"
             onChange={setNewResponsible}
           />
 
+          <div className="search-cep">
+            <Input
+              label="CEP (Somente números)"
+              name="address"
+              type="text"
+              value={newResponsible.address}
+              placeholder="00000000"
+              onChange={setNewResponsible}
+            />
+            <button onClick={onGetCep}>Consultar CEP</button>
+          </div>
+
           <Input
-            label="CEP (Somente números)"
-            name="cep"
+            label="Rua"
+            name="logradouro"
             type="text"
-            value={newResponsible.address}
-            onChange={setNewResponsible}
+            value={cep.logradouro}
+            onChange={() => {}}
+          />
+
+          <div className="bairro-n">
+            <Input
+              label="Bairro"
+              name="bairro"
+              type="text"
+              value={cep.bairro}
+              onChange={() => {}}
+            />
+            <Input
+              label="Nº"
+              name="numero"
+              type="text"
+              value={cep.numero}
+              onChange={setCep}
+            />
+          </div>
+
+          <Input
+            label="Cidade"
+            name="localidade"
+            type="text"
+            value={cep.localidade}
+            onChange={() => {}}
+          />
+
+          <Input
+            label="Estado"
+            name="uf"
+            type="text"
+            value={cep.uf}
+            onChange={() => {}}
           />
         </Fields>
 
