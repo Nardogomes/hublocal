@@ -56,18 +56,5 @@ export const Content = styled.div`
 `;
 
 export const Fields = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-
-  .password {
-    width: 100%;
-
-    input[name="password"],
-    input[name="confirm-password"] {
-      width: calc(32rem - 20px);
-    }
-
-    display: flex;
-    justify-content: space-between;
-  }
+  width: 60rem;
 `;
