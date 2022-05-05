@@ -7,9 +7,9 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 66rem;
+  width: 74rem;
   min-height: 32rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 1rem;
   background-color: #fff;
   border-radius: 0.62rem;
