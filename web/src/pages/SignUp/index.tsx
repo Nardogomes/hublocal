@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 
-import { Container, Content, Fields } from "../SignUp/style";
+import { Container, Content, Fields } from "./style";
 
 export function SignUp() {
   const [newUser, setNewUser] = useState({

@@ -5,7 +5,16 @@ import { Ticket } from "../entity/Ticket";
 export async function save(request: Request, response: Response) {
   const ticketRepository = getRepository(Ticket);
 
-  const saveticket = await ticketRepository.save(request.body);
+  const newTicket = request.body;
+
+  const saveticket = await ticketRepository.save({
+    ...newTicket,
+    tec_ticket: "Francisco",
+    status: "PROGRESSO",
+    place: "",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
 
   return response.status(200).json(saveticket);
 }

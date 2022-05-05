@@ -5,12 +5,13 @@ import { ToastContainer } from "react-toastify";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { Company } from "./pages/Company";
-import { Responsible } from "./pages/Responsible";
-import { Place } from "./pages/Place";
-import { Ticket } from "./pages/Ticket";
 import { ShowCompanies } from "./pages/ShowCompanies";
-import { ShowPlaces } from "./pages/ShowPlaces";
+import { Responsible } from "./pages/Responsible";
 import { ShowResponsible } from "./pages/ShowResponsible";
+import { Place } from "./pages/Place";
+import { ShowPlaces } from "./pages/ShowPlaces";
+import { Ticket } from "./pages/Ticket";
+import { ShowTickets } from "./pages/ShowTickets"
 
 import { GlobalStyle } from "./styles/global";
 import "react-toastify/dist/ReactToastify.css";
@@ -37,6 +38,7 @@ export function App() {
           <Route path="/local" element={<Place />} />
           <Route path="/locais-cad" element={<ShowPlaces />} />
           <Route path="/ticket" element={<Ticket />} />
+          <Route path="/tickets-cad" element={<ShowTickets />} />
         </Routes>
       </Router>
       <GlobalStyle />
