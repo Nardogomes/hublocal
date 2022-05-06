@@ -14,6 +14,7 @@ export const Content = styled.div`
   background-color: #fff;
   border-radius: 0.62rem;
   box-shadow: 0px 0px 4px 1px rgb(0, 0, 0, 0.4);
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -63,5 +64,10 @@ export const Content = styled.div`
     &:hover {
       filter: brightness(0.9);
     }
+  }
+
+  #dashboard {
+    position: absolute;
+    right: 1rem;
   }
 `;

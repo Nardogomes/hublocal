@@ -71,8 +71,13 @@ export function ShowPlaces() {
             ))}
           </tbody>
         </table>
+
         <Link to="/local">
           <button>+ Adicionar local</button>
+        </Link>
+
+        <Link id="dashboard" to="/dashboard">
+          <button>Voltar para o início</button>
         </Link>
       </Content>
     </Container>

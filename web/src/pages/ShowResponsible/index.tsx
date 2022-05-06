@@ -74,8 +74,13 @@ export function ShowResponsible() {
             ))}
           </tbody>
         </table>
+
         <Link to="/responsavel">
           <button>+ Adicionar local</button>
+        </Link>
+
+        <Link id="dashboard" to="/dashboard">
+          <button>Voltar para o início</button>
         </Link>
       </Content>
     </Container>

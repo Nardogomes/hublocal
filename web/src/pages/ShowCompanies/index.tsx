@@ -5,10 +5,10 @@ import { Header } from "../../components/Header";
 import { Container, Content } from "../ShowCompanies/style";
 
 interface ShowCompaniesProps {
-  id: string,
-  name: string,
-  cnpj: string,
-  description: string
+  id: string;
+  name: string;
+  cnpj: string;
+  description: string;
 }
 
 export function ShowCompanies() {
@@ -16,8 +16,8 @@ export function ShowCompanies() {
 
   useEffect(() => {
     fetch("http://localhost:3333/allcompany")
-      .then(response => response.json())
-      .then(data => setCompanies(data))
+      .then((response) => response.json())
+      .then((data) => setCompanies(data));
   }, []);
 
   return (
@@ -26,7 +26,7 @@ export function ShowCompanies() {
 
       <Content>
         <h1>Empresas Cadastratadas</h1>
-        
+
         <table>
           <thead>
             <tr>
@@ -43,12 +43,16 @@ export function ShowCompanies() {
                 <td>{company.cnpj}</td>
                 <td>{company.description}</td>
               </tr>
-            ))
-            }
+            ))}
           </tbody>
         </table>
+
         <Link to="/empresa">
           <button>+ Adicionar empresa</button>
+        </Link>
+
+        <Link id="dashboard" to="/dashboard">
+          <button>Voltar para o início</button>
         </Link>
       </Content>
     </Container>
