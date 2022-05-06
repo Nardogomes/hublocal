@@ -11,4 +11,5 @@ Backend:
 Frontend:
 - React
 - Styled-Components
-- Toast
+- Toastify
+- Axios
