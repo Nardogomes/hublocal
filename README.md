@@ -23,7 +23,7 @@ Frontend:
 <p>Clonar o projeto</p>
 
 ```
-git clone 
+git clone https://github.com/Nardogomes/hublocal.git
 ```
 
 <p>Acessar a pasta backend</p>
