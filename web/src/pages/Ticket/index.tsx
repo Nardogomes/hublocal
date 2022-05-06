@@ -1,20 +1,37 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
+import { toast } from "react-toastify";
 
-import { Container, Content, Fields } from "../Company/style";
+import { Container, Content, Fields } from "./style";
 
 export function Ticket() {
+  const navigate = useNavigate();
+
   const [newTicket, setNewTicket] = useState({
     title: "",
-    createdAt: "",
-    updatedAt: "",
     owner: "",
-    tec_ticket: "",
-    status: "",
-    place: ""
+    description: "",
   });
+
+  async function onSubmit() {
+    const request = await fetch("http://localhost:3333/saveticket", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...newTicket }),
+    });
+
+    if (request.ok) {
+      toast("Local cadastrado com sucesso.", {
+        type: "success",
+        autoClose: 3000,
+        onClose: () => navigate("/tickets-cad"),
+      });
+    }
+  }  
 
   return (
     <Container>
@@ -44,22 +61,14 @@ export function Ticket() {
             label="Descrição"
             name="description"
             type="text"
-            value={newTicket.tec_ticket}
-            onChange={setNewTicket}
-          />
-
-          <Input
-            label="Descrição"
-            name="description"
-            type="text"
-            value={newTicket.tec_ticket}
+            value={newTicket.description}
             onChange={setNewTicket}
           />
         </Fields>
 
         <div className="buttons">
-          <button>Cadastrar</button>
-          <Link to="/">
+          <button onClick={onSubmit}>Cadastrar</button>
+          <Link to="/tickets-cad">
             <button name="cancel">Cancelar</button>
           </Link>
         </div>

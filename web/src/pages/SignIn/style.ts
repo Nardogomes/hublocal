@@ -20,6 +20,7 @@ export const Content = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 4rem;
 
   h1 {

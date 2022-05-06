@@ -24,5 +24,8 @@ export class Ticket {
   status: string;
 
   @Column("varchar")
+  description: string;
+
+  @Column("varchar")
   place: string;
 }
