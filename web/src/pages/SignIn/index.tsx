@@ -41,7 +41,7 @@ export function SignIn() {
             onChange={setLoginValues}
           />
 
-          <Link to="/empresa">
+          <Link to="/dashboard">
             <button>Entrar</button>
           </Link>
 

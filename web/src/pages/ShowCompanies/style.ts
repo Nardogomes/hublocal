@@ -14,6 +14,7 @@ export const Content = styled.div`
   background-color: #fff;
   border-radius: 0.62rem;
   box-shadow: 0px 0px 4px 1px rgb(0, 0, 0, 0.4);
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -31,7 +32,7 @@ export const Content = styled.div`
     border-spacing: 0 0.5rem;
 
     th {
-      color: #969CB3;
+      color: #969cb3;
       font-weight: 500;
       padding: 1rem 2rem;
       text-align: left;
@@ -41,10 +42,10 @@ export const Content = styled.div`
     td {
       padding: 1rem 2rem;
       border: 0;
-      color: #969CB3;
-      
+      color: #969cb3;
+
       &:first-child {
-        color: #363F5F;
+        color: #363f5f;
       }
     }
   }
@@ -63,5 +64,10 @@ export const Content = styled.div`
     &:hover {
       filter: brightness(0.9);
     }
+  }
+
+  #dashboard {
+    position: absolute;
+    right: 1rem;
   }
 `;
