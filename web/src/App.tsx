@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
+import { Dashboard } from "./pages/Dashboard";
 import { Company } from "./pages/Company";
 import { ShowCompanies } from "./pages/ShowCompanies";
 import { Responsible } from "./pages/Responsible";
@@ -30,6 +31,7 @@ export function App() {
       <Router>
         <Routes>
           <Route path="/" element={<SignIn />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/empresa" element={<Company />} />
           <Route path="/empresas-cad" element={<ShowCompanies />} />
