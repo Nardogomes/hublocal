@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 
@@ -30,29 +30,69 @@ export function Dashboard() {
   const [places, setPlaces] = useState<PlacesProps[]>([]);
   const [tickets, setTickets] = useState<TicketsProps[]>([]);
 
-  useEffect(() => {
-    fetch("http://localhost:3333/allcompany")
-      .then((response) => response.json())
-      .then((data) => setCompanies(data));
-  }, [companies]);
+  const fetchRequest = async (parameter: string) => {
+    const response = await fetch(`http://localhost:3333/${parameter}`)
+      const data = await response.json()
+      return data;
+  }
 
-  useEffect(() => {
-    fetch("http://localhost:3333/allresponsible")
-      .then((response) => response.json())
-      .then((data) => setResponsibles(data));
-  }, [responsibles]);
+  // const fetchCompany = async () => {
+  //   const response = await fetch("http://localhost:3333/allcompany")
+  //     const data = await response.json()
+  //     return data;
+  // }
 
-  useEffect(() => {
-    fetch("http://localhost:3333/alllocation")
-      .then((response) => response.json())
-      .then((data) => setPlaces(data));
-  }, [places]);
+  // const fetchResponsible = async () => {
+  //   const response = await fetch("http://localhost:3333/allresponsible")
+  //     const data = await response.json()
+  //     return data;
+  // }
 
-  useEffect(() => {
-    fetch("http://localhost:3333/allticket")
-      .then((response) => response.json())
-      .then((data) => setTickets(data));
+  // const fetchLocation = async () => {
+  //   const response = await fetch("http://localhost:3333/alllocation")
+  //     const data = await response.json()
+  //     return data;
+  // }
+
+  // const fetchTicket = async () => {
+  //   const response = await fetch("http://localhost:3333/allticket")
+  //     const data = await response.json()
+  //     return data;
+  // }
+
+  useEffect(()=>{
+    Promise.all([fetchRequest("allcompany"), fetchRequest("allresponsible"), fetchRequest("alllocation"), fetchRequest("allticket")])
+      .then(([company, responsible, location, ticket]) => {
+        setCompanies(company);
+        setResponsibles(responsible);
+        setPlaces(location);
+        setTickets(ticket);
+      })
   }, []);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3333/allcompany")
+  //     .then((response) => response.json())
+  //     .then((data) => setCompanies(data));
+  // }, [companies]);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3333/allresponsible")
+  //     .then((response) => response.json())
+  //     .then((data) => setResponsibles(data));
+  // }, [responsibles]);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3333/alllocation")
+  //     .then((response) => response.json())
+  //     .then((data) => setPlaces(data));
+  // }, [places]);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3333/allticket")
+  //     .then((response) => response.json())
+  //     .then((data) => setTickets(data));
+  // }, []);
 
   return (
     <Container>
@@ -62,7 +102,7 @@ export function Dashboard() {
         <div className="companies">
           <h1>Empresas</h1>
           <ul>
-            {companies.length === 0
+            {!companies.length
               ? "Não há empresas cadastradas"
               : companies.map((company) => (
                   <li key={company.id}>{company.name}</li>
@@ -76,7 +116,7 @@ export function Dashboard() {
         <div className="responsibles">
           <h1>Responsáveis</h1>
           <ul>
-            {responsibles.length === 0
+            {!responsibles.length
               ? "Não há responsáveis cadastrados"
               : responsibles.map((responsible) => (
                   <li key={responsible.id}>{responsible.name}</li>
@@ -90,7 +130,7 @@ export function Dashboard() {
         <div className="places">
           <h1>Locais</h1>
           <ul>
-            {places.length === 0
+            {!places.length
               ? "Não há locais cadastrados"
               : places.map((place) => <li key={place.id}>{place.name}</li>)}
           </ul>
@@ -102,7 +142,7 @@ export function Dashboard() {
         <div className="tickets">
           <h1>Tickets</h1>
           <ul>
-            {tickets.length === 0
+            {!tickets.length
               ? "Não há tickets cadastrados"
               : tickets.map((ticket) => (
                   <li key={ticket.id}>{ticket.title}</li>
